@@ -57,8 +57,10 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .mobile-menu{
   position:fixed; inset:0; z-index:45;
   background:var(--bg);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:32px;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:24px;
   animation:fadeIn .2s ease;
+  padding:96px 24px 32px;
+  overflow:hidden;
 }
 .mobile-menu a{font-size:22px; letter-spacing:.08em; color:var(--ink); font-family:'Fraunces', serif;}
 .mobile-menu a:hover{color:var(--accent);}
@@ -106,6 +108,9 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 .hero-scroll{
   position:absolute; right:32px; bottom:40px; z-index:1; writing-mode:vertical-rl;
   font-size:11px; letter-spacing:.3em; color:var(--ink-faint); display:flex; align-items:center; gap:14px;
+}
+@media (max-width:560px){
+  .hero, .hero video{width:100vw;}
 }
 
  /* Base style for both lines */
@@ -201,6 +206,8 @@ footer{background:var(--bg-panel); border-top:1px solid var(--line); padding-top
 @media (max-width:560px){
   .foot-grid{grid-template-columns:1fr;}
   .nav-cta{display:none;}
+  .mobile-menu{gap:18px; padding:88px 20px 24px;}
+  .mobile-menu a{font-size:18px;}
 }
 @media (prefers-reduced-motion: reduce){
   .gallery img{transition:none;}
@@ -258,6 +265,15 @@ z-index: 0;
   transition:transform .25s ease, background .25s ease; text-transform:uppercase;
 }
 .reel-return:hover{background:#f2924f; transform:translateY(-2px);}
+@media (max-width:560px){
+  .reel-modal-label{
+    left:0; right:0; bottom:72px; text-align:center; padding:0 20px;
+  }
+  .reel-return{
+    left:50%; right:auto; bottom:20px; transform:translateX(-50%);
+  }
+  .reel-return:hover{transform:translateX(-50%) translateY(-2px);}
+}
 
 /* ---------- CV MODAL ---------- */
 .cv-overlay{
